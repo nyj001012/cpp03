@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 09:22:15 by yena              #+#    #+#             */
-/*   Updated: 2023/06/18 09:42:43 by yena             ###   ########.fr       */
+/*   Updated: 2023/06/18 10:06:47 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,27 @@ std::string ClapTrap::getName(void) const {
   return (this->_name);
 }
 
+unsigned int ClapTrap::getAttackDamage(void) const {
+  return (this->_attack_damage);
+}
+
+void ClapTrap::setAttackDamage(unsigned int amount) {
+  std::cout << "\033[0;32mClapTrap\033[0m " << this->_name
+            << " set attack damage to " << amount << std::endl;
+  this->_attack_damage = amount;
+}
+
 /**
  * claptrap attacks target.
  * @param target
  */
 void ClapTrap::attack(const std::string &target) {
-  if (this->isUnconscious()) {
-    std::cout << "\033[0;32mClapTrap\033[0m" << this->_name
-              << " is dead" << std::endl;
+  if (this->isUnconscious())
     return;
-  }
-  std::cout << "\033[0;32mClapTrap\033[0m" << this->_name
-            << " attacks " << target.getName()
+  std::cout << "\033[0;32mClapTrap\033[0m " << this->_name
+            << " attacks " << target
             << ", causing " << this->_attack_damage
             << " points of damage!" << std::endl;
-  target.takeDamage(this->_attack_damage);
   this->_energy_points--;
 }
 
@@ -77,15 +83,15 @@ void ClapTrap::attack(const std::string &target) {
  * @param amount
  */
 void ClapTrap::takeDamage(unsigned int amount) {
-  if (this->isUnconscious()) {
-    std::cout << "\033[0;32mClapTrap\033[0m" << this->_name
-              << " is dead" << std::endl;
+  if (this->isUnconscious())
     return;
-  }
-  std::cout << "\033[0;32mClapTrap\033[0m" << this->_name
+  std::cout << "\033[0;32mClapTrap\033[0m " << this->_name
             << " takes " << amount
             << " points of damage!" << std::endl;
-  this->_hit_points -= amount;
+  if (this->_hit_points < amount)
+    this->_hit_points = 0;
+  else
+    this->_hit_points -= amount;
 }
 
 /**
@@ -93,12 +99,9 @@ void ClapTrap::takeDamage(unsigned int amount) {
  * @param amount
  */
 void ClapTrap::beRepaired(unsigned int amount) {
-  if (this->isUnconscious()) {
-    std::cout << "\033[0;32mClapTrap\033[0m" << this->_name
-              << " is dead" << std::endl;
+  if (this->isUnconscious())
     return;
-  }
-  std::cout << "\033[0;32mClapTrap\033[0m" << this->_name
+  std::cout << "\033[0;32mClapTrap\033[0m " << this->_name
             << " is repaired " << amount
             << " points of damage!" << std::endl;
   this->_hit_points += amount;
@@ -110,7 +113,10 @@ void ClapTrap::beRepaired(unsigned int amount) {
  * @return
  */
 bool ClapTrap::isUnconscious(void) const {
-  if (this->_hit_points <= 0 || this->_energy_points <= 0)
+  if (this->_hit_points == 0 || this->_energy_points == 0) {
+    std::cout << "\033[0;32mClapTrap\033[0m " << this->_name
+              << " is unconscious" << std::endl;
     return (true);
+  }
   return (false);
 }
