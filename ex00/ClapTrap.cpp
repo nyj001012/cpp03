@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 09:22:15 by yena              #+#    #+#             */
-/*   Updated: 2023/06/18 10:06:47 by yena             ###   ########.fr       */
+/*   Updated: 2023/06/18 10:21:55 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,34 @@ std::string ClapTrap::getName(void) const {
   return (this->_name);
 }
 
+unsigned int ClapTrap::getHitPoints(void) const {
+  return (this->_hit_points);
+}
+
+unsigned int ClapTrap::getEnergyPoints(void) const {
+  return (this->_energy_points);
+}
+
 unsigned int ClapTrap::getAttackDamage(void) const {
   return (this->_attack_damage);
+}
+
+void ClapTrap::setName(const std::string &name) {
+  std::cout << "\033[0;32mClapTrap\033[0m " << this->_name
+            << " is renamed to " << name << std::endl;
+  this->_name = name;
+}
+
+void ClapTrap::setHitPoints(unsigned int amount) {
+  std::cout << "\033[0;32mClapTrap\033[0m " << this->_name
+            << " set hit points to " << amount << std::endl;
+  this->_hit_points = amount;
+}
+
+void ClapTrap::setEnergyPoints(unsigned int amount) {
+  std::cout << "\033[0;32mClapTrap\033[0m " << this->_name
+            << " set energy points to " << amount << std::endl;
+  this->_energy_points = amount;
 }
 
 void ClapTrap::setAttackDamage(unsigned int amount) {

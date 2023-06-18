@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 09:22:15 by yena              #+#    #+#             */
-/*   Updated: 2023/06/18 10:01:47 by yena             ###   ########.fr       */
+/*   Updated: 2023/06/18 10:20:55 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,12 @@ class ClapTrap {
   ClapTrap &operator=(const ClapTrap &ref);
   ~ClapTrap(void);
   std::string getName(void) const;
+  unsigned int getHitPoints(void) const;
+  unsigned int getEnergyPoints(void) const;
   unsigned int getAttackDamage(void) const;
+  void setName(const std::string &name);
+  void setHitPoints(unsigned int amount);
+  void setEnergyPoints(unsigned int amount);
   void setAttackDamage(unsigned int amount);
   void attack(const std::string &target);
   void takeDamage(unsigned int amount);
