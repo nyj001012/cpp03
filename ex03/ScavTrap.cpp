@@ -6,11 +6,11 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 10:07:40 by yena              #+#    #+#             */
-/*   Updated: 2023/06/18 10:39:18 by yena             ###   ########.fr       */
+/*   Updated: 2023/06/18 22:09:43 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ex01/ScavTrap.hpp"
+#include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(void) : ClapTrap() {
   std::cout << "\033[0;33mScavTrap\033[0m Default constructor called"

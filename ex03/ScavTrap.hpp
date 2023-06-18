@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 10:07:40 by yena              #+#    #+#             */
-/*   Updated: 2023/06/18 10:16:19 by yena             ###   ########.fr       */
+/*   Updated: 2023/06/18 22:04:24 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@
  * @brief ScavTrap class
  * @inherit ClapTrap
  */
-class ScavTrap : public ClapTrap {
- private:
-
+class ScavTrap : public virtual ClapTrap {
  public:
   ScavTrap(void);
   ScavTrap(const std::string &name);

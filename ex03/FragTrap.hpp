@@ -6,7 +6,7 @@
 /*   By: yena <yena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 10:25:04 by yena              #+#    #+#             */
-/*   Updated: 2023/06/18 10:35:37 by yena             ###   ########.fr       */
+/*   Updated: 2023/06/18 22:04:25 by yena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  * @brief FragTrap class
  * @inherit ClapTrap
  */
-class FragTrap : public ClapTrap {
+class FragTrap : public virtual ClapTrap {
  private:
 
  public:

@@ -1,8 +1,9 @@
-NAME = frag_trap
+NAME = diamond_trap
 SRCS = main.cpp \
 	   ClapTrap.cpp \
 	   ScavTrap.cpp \
-	   FragTrap.cpp
+	   FragTrap.cpp \
+	   DiamondTrap.cpp
 OBJS = ${SRCS:.cpp=.o}
 
 CC = clang++
